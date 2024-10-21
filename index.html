@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="titleWeb"></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/mystyle.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+
+<head>
+    <div>
+        <button id="requestPermission">Click to Allow Audio</button>
+        <p id="status"></p>
+
+        <audio id="player" loop>
+            <source src="music.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+
+<body style="width: 100%; height: 100%;">
+    <h3 style="color: cyan; "> <span class="multiple"></span></h3>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+
+    <script>
+        var typed = new Typed(".multiple", {
+            strings: ["Happy Birthday, Angry Bird! 🎉","Deepa’s cheering you on—","stay cool,","stay happy,","and let the party begin! 🎂✨"],
+            typeSpeed: 100,
+            backSpeed: 100,
+            backDelay: 1000,
+            loop: true
+        });
+    </script>
+    <script>
+        function textToAudio10() {
+            let speech = new SpeechSynthesisUtterance();
+            speech.lang = "en-US";
+            speech.text = "Hey there, little Angry Bird, it's your special day,Deepa’s here to wish you joy, in every single way! Stay cool, stay fierce, but take it nice and slow, A long year of happiness is what we want you to know!";
+            speech.volume = 10;
+            speech.rate = 1;
+            speech.pitch = 1;
+            speechSynthesis.speak(speech);
+        }
+
+
+        document.getElementById("requestPermission").addEventListener("click", function () {
+            let userConfirmed = confirm("Do you allow this function to run?");
+
+            if (userConfirmed) {
+
+                document.getElementById("status").innerText = "Permission granted!";
+
+
+                const player = document.getElementById("player");
+                player.play();
+                textToAudio10();
+            } else {
+
+                document.getElementById("status").innerText = "Permission denied by the user.";
+            }
+        });
+    </script>
+
+    </div>
+    </head>
+    <canvas id=c></canvas>
+    <div class="box">
+        <ul class="minbox">
+            <li id="min1"></li>
+            <li id="min2"></li>
+            <li id="min3"></li>
+            <li id="min4"></li>
+            <li id="min5"></li>
+            <li id="min6"></li>
+        </ul>
+        <ol class="maxbox">
+            <li id="max1"></li>
+            <li id="max2"></li>
+            <li id="max3"></li>
+            <li id="max4"></li>
+            <li id="max5"></li>
+            <li id="max6"></li>
+        </ol>
+    </div>
+    <script src="./config.js"></script>
+    <script src="./js/main.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
